@@ -16,6 +16,7 @@
 #define botaoA 5
 #define botaoB 6
 #define pinoBuzzer 21
+#define botaoJoystick 22
 
 int saldoAtual = 0;
 int totalLatasLiberadas = 0;
@@ -54,7 +55,7 @@ void atualizarDisplay(uint8_t *bufferDisplay, struct render_area *areaRenderizac
     memset(bufferDisplay, 0, ssd1306_buffer_length);
 
     ssd1306_draw_string(bufferDisplay, 0, 0, "25 50 100 LATA");
-    ssd1306_draw_string(bufferDisplay, 0, 8, "A:25 B:50");
+    ssd1306_draw_string(bufferDisplay, 0, 8, "A:25 B:50 J: 100");
     ssd1306_draw_line(bufferDisplay, 0, 19, 127, 19, true);
 
     snprintf(textoLinha, sizeof(textoLinha), "SALDO: %d", saldoAtual);
@@ -105,6 +106,10 @@ int main() {
     gpio_set_dir(botaoB, GPIO_IN);
     gpio_pull_up(botaoB);
 
+    gpio_init(botaoJoystick);
+    gpio_set_dir(botaoJoystick, GPIO_IN);
+    gpio_pull_up(botaoJoystick);
+
     PIO pio = pio0;
     uint maquinaEstado = 0;
     uint deslocamentoPrograma = pio_add_program(pio, &ws2812_program);
@@ -118,7 +123,7 @@ int main() {
     while (true) {
         int moedaInserida = 0;
 
-        if (!gpio_get(botaoA)) {
+       if (!gpio_get(botaoA)) {
             sleep_ms(30);
             if (!gpio_get(botaoA)) {
                 moedaInserida = 25;
@@ -131,6 +136,14 @@ int main() {
             if (!gpio_get(botaoB)) {
                 moedaInserida = 50;
                 while (!gpio_get(botaoB)) {
+                    sleep_ms(10);
+                }
+            }
+        } else if (!gpio_get(botaoJoystick)) {
+            sleep_ms(30);
+            if (!gpio_get(botaoJoystick)) {
+                moedaInserida = 100;
+                while (!gpio_get(botaoJoystick)) {
                     sleep_ms(10);
                 }
             }
