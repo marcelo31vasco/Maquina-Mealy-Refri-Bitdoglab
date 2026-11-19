@@ -1,15 +1,12 @@
-# Máquina de Mealy — Dispensador de Refrigerante (BitDogLab)
+# Máquina de Mealy — Máquina de Refrigerante com a BitDogLab
 
-Este repositório contém a implementação em linguagem C do transdutor de estados finitos (**Máquina de Mealy**) para um dispensador de refrigerante utilizando o **Raspberry Pi Pico / BitDogLab** com o **Pico SDK**, no contexto da **Tarefa 6** do **Programa de Residência EmbarcaTech** (Trilha de Software Embarcado).
+Este repositório contém a implementação em linguagem C do transdutor de estados finitos (**Máquina de Mealy**) para um dispensador de refrigerante utilizando o **Raspberry Pi Pico W / BitDogLab** com o **Pico SDK**, no contexto da **Tarefa 5** do **Programa de Mestrado em Ciência da Computação da UFPA** (Trilha de Engenharia de Software e Interação).
 
 ---
 
 ## Enunciado da Atividade
 
-Implementar um transdutor de estados finitos (**Máquina de Mealy**) na placa **BitDogLab** que modele um dispensador de refrigerante com entradas de moedas de **25** e **50** centavos e liberação de lata ao atingir **100** centavos, indicando o estado do saldo, a última moeda inserida e a saída (`1` para lata liberada e `0` caso contrário) por meio dos recursos de hardware da placa.
-
-> *Observação: Caso deseje transcrever literalmente o texto integral ou algum detalhe específico do enunciado original da sua lista da Tarefa 6, basta substituir ou complementar o bloco acima antes de publicar.*
-
+Implementar um transdutor de estados finitos (**Máquina de Mealy**) em qualquer linguagem de programação. Por questões visuais, estarei usando placa **BitDogLab**. Deve ser simulado um dispensador de refrigerante com entradas de moedas de **25** e **50** centavos e liberação de lata ao atingir **100** centavos, indicando o estado do saldo, a última moeda inserida e a saída (`1` para lata liberada e `0` caso contrário) por meio dos recursos de hardware da placa.
 ---
 
 ## Como a Atividade Foi Resolvida
